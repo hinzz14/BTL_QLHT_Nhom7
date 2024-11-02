@@ -1,0 +1,125 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+}
+@model THoaDonNhap
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Thêm Hóa Đơn Nhập</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Hóa Đơn Nhập</h3>
+                    @* <h4 class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                        <form asp-controller="HoaDonNhap" asp-action="AddHDN" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;" class="fas fa-info-circle form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Số Hóa Đơn Nhập</h5>
+                                    </div>
+                                    <input asp-for="SoHdn" type="text" class="form-control has-feedback-left" placeholder="Số Hóa Đơn Nhập">
+                                    <span class="text-danger" asp-validation-for="SoHdn"></span>
+                                </div>
+
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Mã Nhân Viên</h5>
+                                    </div>
+                                    <select asp-for="MaNv" type="text" class="form-control has-feedback-left" placeholder="Mã Nhân Viên" asp-items="@ViewBag.MaNv"></select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class=" fas fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Ngày Lập</h5>
+                                    </div>
+                                    <input asp-for="NgayLap" class="form-control has-feedback-left" >
+                                    <span class="text-danger" asp-validation-for="NgayLap"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-box-open  form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Mã Nhà Cung Cấp</h5>
+                                    </div>
+                                    <select asp-for="MaNcc" type="text" class="form-control has-feedback-left" placeholder="Mã Nhà Cung Cấp" asp-items="@ViewBag.MaNcc"></select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-box-open  form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Tổng Tiền</h5>
+                                    </div>
+                                    <input asp-for="TongTien" type="text" class="form-control has-feedback-left" placeholder="Tổng Tiền">
+                                    <span class="text-danger" asp-validation-for="TongTien"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <button class="btn btn-primary" type="button">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

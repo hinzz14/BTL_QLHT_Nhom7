@@ -1,0 +1,187 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AdminWebpage.Models.TThuoc
+@{
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Sửa Sản Phẩm</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Sản Phẩm</h3>
+                    @* <h4 class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                        <form asp-controller="Thuoc" asp-action="EditProduct" enctype="multipart/form-data">
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-seedling form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Mã Thuốc</h5>
+                                    </div>
+                                    <input asp-for="MaThuoc" type="text" class="form-control has-feedback-left" placeholder="Mã Thuốc">
+                                    <span class="text-danger" asp-validation-for="MaThuoc"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-info-circle form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Tên Thuốc</h5>
+                                    </div>
+                                    <input asp-for="TenThuoc" type="text" class="form-control has-feedback-left" placeholder="Tên Thuốc">
+                                    <span class="text-danger" asp-validation-for="TenThuoc"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-clipboard-list form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Thành Phần</h5>
+                                    </div>
+                                    <input asp-for="ThanhPhan" type="text" class="form-control has-feedback-left" placeholder="Thành Phần">
+                                    <span class="text-danger" asp-validation-for="ThanhPhan"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-clipboard-list form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Ngày Sản Xuất</h5>
+                                    </div>
+                                    <input asp-for="NgaySx"  class="form-control has-feedback-left" placeholder="Ngày Sản Xuất">
+                                    <span class="text-danger" asp-validation-for="NgaySx"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-clipboard-list form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Thành Phần</h5>
+                                    </div>
+                                    <input asp-for="NgayHh" class="form-control has-feedback-left" placeholder="Ngày Hết Hạn">
+                                    <span class="text-danger" asp-validation-for="NgayHh"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-calendar-alt form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Mã Loại</h5>
+                                    </div>
+                                    <select asp-for="MaLoai" type="text" class="form-control has-feedback-left" placeholder="Mã Loại" asp-items="ViewBag.MaLoai"></select>
+
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-pound-sign  form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Giá Bán</h5>
+
+                                    </div>
+                                    <input asp-for="DonGiaBan" type="text" class="form-control has-feedback-left" placeholder="Giá Bán">
+                                    <span class="text-danger" asp-validation-for="DonGiaBan"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-pound-sign form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Giá Nhập</h5>
+                                    </div>
+                                    <input asp-for="DonGiaNhap" type="text" class="form-control has-feedback-left" placeholder="Giá Nhập">
+                                    <span class="text-danger" asp-validation-for="DonGiaNhap"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-cubes form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Số Lượng</h5>
+                                    </div>
+                                    <input asp-for="SoLuong" type="text" class="form-control has-feedback-left" placeholder="Số Lượng">
+                                    <span class="text-danger" asp-validation-for="SoLuong"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-x-ray form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Trọng Lượng</h5>
+                                    </div>
+                                    <input asp-for="TrongLuong" type="text" class="form-control has-feedback-left" placeholder="Trọng Lượng">
+                                    <span class="text-danger" asp-validation-for="TrongLuong"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-file-image form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Ảnh</h5>
+                                    </div>
+                                    <input asp-for="Anh" type="file" name="file" class="form-control has-feedback-left" placeholder="Ảnh">
+                                    
+                                </div>
+                            </div>
+
+
+
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <a asp-controller="Thuoc" asp-action="Product" class="btn btn-primary" type="button">Cancel</a>
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

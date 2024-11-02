@@ -1,0 +1,275 @@
+﻿
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+@model IEnumerable<TNhanVien>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Trang Chủ</h4>
+            </div>
+            
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Tổng số lượng thuốc</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-success">@ViewBag.Thuoc</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Tổng doanh thu</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash2">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-purple">@ViewBag.DoanhThu</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Tổng nhập</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <li class="ms-auto">
+                            <span class="counter text-info">@ViewBag.TongBan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Tổng Bán</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash4">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <li class="ms-auto">
+                            <span class="counter text-info">@ViewBag.TongMua</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- PRODUCTS YEARLY SALES -->
+        <!-- ============================================================== -->
+     
+        <!-- ============================================================== -->
+        <!-- Recent Comments -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <!-- .col -->
+            <div class="col-md-12 col-lg-8 col-sm-12">
+                <div class="card white-box p-0">
+                    <div class="card-body">
+                        <h3 class="box-title mb-0">Bình Luận Gần Đây</h3>
+                    </div>
+                    <div class="comment-widgets">
+                        <!-- Comment Row -->
+                        <div class="d-flex flex-row comment-row p-3 mt-0">
+                            <div class="p-2"><img src="~/plugins/images/users/varun.jpg" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text ps-2 ps-md-3 w-100">
+                                <h5 class="font-medium">Phạm Duy Lợi</h5>
+                                <span class="mb-3 d-block">Hiệu thuốc này cung cấp đầy đủ các sản phẩm cần thiết với dịch vụ chăm sóc tận tâm. Tôi luôn tin tưởng vào chất lượng của sản phẩm và sự tận tâm của nhân viên.</span>
+                                <div class="comment-footer d-md-flex align-items-center">
+                                    <span class="badge bg-primary rounded">Chưa giải quyết</span>
+
+                                    <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">04/10/2024</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Comment Row -->
+                        <div class="d-flex flex-row comment-row p-3">
+                            <div class="p-2"><img src="~/plugins/images/users/genu.jpg" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text ps-2 ps-md-3 active w-100">
+                                <h5 class="font-medium">Trương Xuân Lộc</h5>
+                                <span class="mb-3 d-block">Tôi rất hài lòng với sự tư vấn của nhân viên tại hiệu thuốc. Họ rất kiến thức và chu đáo trong việc giải đáp mọi thắc mắc của tôi về các loại thuốc cũng như cách sử dụng chúng.</span>
+                                <div class="comment-footer d-md-flex align-items-center">
+
+                                    <span class="badge bg-success rounded">Tán thành</span>
+
+                                    <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">04/10/2024</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Comment Row -->
+                        <div class="d-flex flex-row comment-row p-3">
+                            <div class="p-2"><img src="~/plugins/images/users/ritesh.jpg" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text ps-2 ps-md-3 w-100">
+                                <h5 class="font-medium">Nguyễn Anh Tây </h5>
+                                <span class="mb-3 d-block">Hiệu thuốc này luôn có đầy đủ các loại thuốc cần thiết và cung cấp dịch vụ giao hàng nhanh chóng. Điều này thực sự tiện lợi đối với những người có thời gian bận rộn như tôi. </span>
+                                <div class="comment-footer d-md-flex align-items-center">
+
+                                    <span class="badge rounded bg-danger">Loại bỏ</span>
+
+                                    <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">04/10/2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card white-box p-0">
+                    <div class="card-heading">
+                        <h3 class="box-title mb-0">Tin Nhắn</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="chatonline">
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Trương Xuân Lộc <small class="d-block text-success d-block">Trực tuyến</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Phạm Duy Lợi<small class="d-block text-warning">Xa</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Nguyễn Anh Tây<small class="d-block text-danger">Bận</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                           Vũ Mạnh Cường<small class="d-block text-muted">Ngoại tuyến</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/govinda.jpg" alt="user-img"
+                                         class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Trương Tuấn Anh<small class="d-block text-success">Trực tuyến</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="call-chat">
+                                    <button class="btn btn-success text-white btn-circle btn" type="button">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-circle btn" type="button">
+                                        <i class="far fa-comments text-white"></i>
+                                    </button>
+                                </div>
+                                <a href="javascript:void(0)" class="d-flex align-items-center">
+                                    <img src="~/plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
+                                    <div class="ms-2">
+                                        <span class="text-dark">
+                                            Mai Tiến Mạnh<small class="d-block text-success">Trực tuyến</small>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>

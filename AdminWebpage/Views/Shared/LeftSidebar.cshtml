@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<aside class="left-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar" style="background-color: #A9A9A9;">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- User Profile-->
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Home" asp-action="Index"
+                       aria-expanded="false">
+                        <i class="far fa-clock" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Trang Chủ</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Thuoc" asp-action="Product"
+                       aria-expanded="false">
+                        <i class="fas fa-boxes" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Sản Phẩm</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="KhachHang" asp-action="Client"
+                       aria-expanded="false">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Khách Hàng</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="HoaDonNhap" asp-action="HDN"
+                       aria-expanded="false">
+                        <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Hóa Đơn Nhập</span>
+                    </a>
+                </li>
+               @*  <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="ChiTietHdn" asp-action="CTHDN"
+                       aria-expanded="false">
+                        <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
+                        <span class="hide-menu">Chi Tiết Hóa Đơn Nhập</span>
+                    </a>
+                </li> *@
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="HoaDonBan" asp-action="HDB"
+                       aria-expanded="false">
+                        <i class="fa fa-clipboard" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Hóa Đơn Bán</span>
+                    </a>
+                </li>
+                @* <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="ChiTietHdb" asp-action="CTHDB"
+                       aria-expanded="false">
+                        <i class="fa fa-clipboard" aria-hidden="true"></i>
+                        <span class="hide-menu">Chi Tiết Hóa Đơn Bán</span>
+                    </a>
+                </li> *@
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="NhaCungCap" asp-action="Supplier"
+                       aria-expanded="false">
+                        <i class="fas fa-truck" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Nhà Cung Cấp</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="NhanVien" asp-action="Staff"
+                       aria-expanded="false">
+                        <i class="fas fa-address-card" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Nhân Viên</span>
+                    </a>
+                </li>
+                <li class="sidebar-item" style="background-color: #A9A9A9;">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="Home" asp-action="Report"
+                       aria-expanded="false">
+                        <i class=" fas fa-clipboard-list" aria-hidden="true"></i>
+                        <span class="hide-menu" style="color: #ffffff;">Báo Cáo Và Thống Kê</span>
+                    </a>
+                </li>
+                
+
+            </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

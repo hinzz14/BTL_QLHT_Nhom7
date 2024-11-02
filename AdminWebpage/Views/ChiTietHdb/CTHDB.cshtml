@@ -1,0 +1,113 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<AdminWebpage.Models.TChiTietHdb>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Trang Chi Tiết Hóa Đơn Bán</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+                    <a asp-controller="ChiTietHdb" asp-action="AddCTHDB" asp-route-id = "@ViewBag.HDb"
+                       class="btn btn-success  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                        Thêm Chi Tiết Hóa Đơn Bán
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Chi Tiết Hóa Đơn Bán</h3>
+                    @* <p class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">Số Hóa Đơn Bán</th>
+                                    <th class="border-top-0">Mã Thuốc</th>
+                                    <th class="border-top-0">Số Lượng Bán</th>
+                                    <th class="border-top-0">Khuyến Mãi</th>
+                                    <th class="border-top-0">Thành Tiền</th>
+                                    <th class="border-top-0">Quản Lý Chi Tiết Hóa Đơn Bán</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoHdbNavigation.SoHdb)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaThuocNavigation.MaThuoc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Slban)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhuyenMai)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ThanhTien)
+                                        </td>
+                                       
+                                        
+                                        <td>
+                                           @*  @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                                            <a class="btn btn-warning" asp-controller="ChiTietHdb" asp-action="EditCTHDB" asp-route-id="@item.SoHdb" asp-route-mt="@item.MaThuoc">Edit</a> |
+
+                                            <a class="btn btn-danger" asp-controller="ChiTietHdb" asp-action="DeleteCTHDB" asp-route-id="@item.SoHdb" asp-route-mt="@item.MaThuoc">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+</div>
+

@@ -1,0 +1,128 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<AdminWebpage.Models.THoaDonBan>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Trang Hóa Đơn Bán</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+                    <a asp-controller="HoaDonBan" asp-action="AddHDB"
+                       class="btn btn-success  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                        Thêm Hóa Đơn Bán
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <div style="display:flex;justify-content:space-between">
+                        <h3 class="box-title mr-3">Hóa Đơn Bán</h3>
+                        <form class="form-group form-inline">
+                            <div style="display:flex;justify-content:space-between">
+
+                                <input type="text" name="Searchkey" class="form-control " placeholder="Từ khóa tìm kiếm" /> <div style="width:5px"> </div>
+                                <input type="submit" name="submit" value="Tìm Kiếm" class="btn btn-primary " />
+                            </div>
+
+                        </form>
+                    </div>
+                    @* <p class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                    
+                                    <th class="border-top-0">Số Hóa Đơn Bán</th>
+                                    <th class="border-top-0">Mã Nhân Viên</th>
+                                    <th class="border-top-0">Ngày Lập </th>
+                                    <th class="border-top-0">Mã Khách Hàng</th>
+                                    <th class="border-top-0">Tổng Tiền</th>
+
+                                    <th class="border-top-0">Quản Lý Hóa Đơn Bán</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoHdb)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaNvNavigation.MaNv)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayLap)
+                                        </td>
+                                        
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaKhNavigation.MaKh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TongTien)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary" asp-controller="ChiTietHdb" asp-action="CTHDB" asp-route-id="@item.SoHdb">Details</a> |
+                                            <a class="btn btn-warning" asp-action="EditHDB" asp-route-id="@item.SoHdb">Edit</a> |
+                                            
+                                            <a class="btn btn-danger" asp-action="DeleteHDB" asp-route-id="@item.SoHdb">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+</div>
+
+

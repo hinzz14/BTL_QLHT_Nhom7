@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model AdminWebpage.Models.TNhanVien
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Xóa Nhân Viên</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Nhân Viên</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên Nhân Viên
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenNv)
+        </dd>
+        <dt class="col-sm-2">
+            Giới Tính
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày Sinh
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+        <dt class="col-sm-2">
+            Địa Chỉ
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt class="col-sm-2">
+            Số Điện Thoại
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+    </dl>
+
+    <form asp-controller="NhanVien" asp-action="DeleteStaff">
+        <input type="hidden" asp-for="MaNv" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

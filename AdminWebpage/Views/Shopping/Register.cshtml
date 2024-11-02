@@ -1,0 +1,115 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "";
+}
+@model Login
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EShopper - Bootstrap Shop Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <section class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex flex-row-reverse justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form onsubmit="onSubmitForm(event)" method="post" asp-controller="Shopping" asp-action="Register">
+                        <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                            <p class="lead fw-normal mb-3 me-3">Sign up</p>
+                        </div>
+
+                        <!-- Username input -->
+                        <label class="form-label" for="form3Example4">Tài Khoản</label>
+                        <div class="form-outline mb-1">
+                            <input asp-for="Account" type="text" id="form3Example4" class="form-control form-control-lg"
+                                   placeholder="Nhập Tài Khoản" />
+                           
+                        </div>
+
+                        
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-1">
+                            <label class="form-label" for="form3Example4">Mật Khẩu</label>
+                            <input asp-for="Password" type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Nhập Mật Khẩu" />
+                        </div>
+
+                        <!-- Repeat the password input -->
+                        <div class="form-outline mb-1">
+                            <label class="form-label" for="form3Example5">Nhập Lại Mật Khẩu</label>
+                            <input type="password" id="form3Example5" class="form-control form-control-lg" placeholder="Nhập Lại Mật Khẩu" onblur="checkPasswordMatch();" />
+                            <div id="divCheckPasswordMatch" style="color: red;"></div>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                <label class="form-check-label" for="form2Example3">
+                                    Tôi Đồng ý với <a href="#">Điều Khoản của Dich Vụ</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" class="btn btn-info btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                                Đăng kí
+                            </button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">
+                                Bạn có tài khoản chưa? <a asp-controller="Login" asp-action="Login"
+                                                          class="link-danger">Đăng Nhập</a>
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<script>
+    function checkPasswordMatch() {
+        var password = document.getElementById("form3Example4").value;
+        var confirmPassword = document.getElementById("form3Example5").value;
+        var errorDiv = document.getElementById("divCheckPasswordMatch");
+
+        if (password === confirmPassword) {
+            errorDiv.innerHTML = "";
+            return true;
+        } else {
+            errorDiv.innerHTML = "Error: Mật Khẩu không đúng!";
+            return false;
+        }
+    }
+
+    function onSubmitForm(event) {
+        if (!checkPasswordMatch()) {
+            event.preventDefault(); // Ngăn chặn gửi form nếu không khớp
+        }
+    }
+</script>

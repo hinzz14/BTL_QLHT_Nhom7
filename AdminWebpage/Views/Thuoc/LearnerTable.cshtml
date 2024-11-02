@@ -1,0 +1,116 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int iDem = 0;
+    int iSlsp = 3;
+    int iTrang = 0;
+}
+@model IEnumerable<AdminWebpage.Models.TThuoc>
+
+<table class="table text-nowrap">
+    <thead>
+        <tr>
+            <th class="border-top-0">Mã Thuốc</th>
+            <th class="border-top-0">Ảnh</th>
+            <th class="border-top-0">Tên Thuốc</th>
+            <th class="border-top-0">Thành Phần</th>
+            <th class="border-top-0">Đơn Giá Bán</th>
+            <th class="border-top-0">Đơn Giá Nhập</th>
+            <th class="border-top-0">Số Lượng</th>
+            <th class="border-top-0">Mã Loại</th>
+            <th class="border-top-0">Quản Lý Sản Phẩm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if(iDem % iSlsp == 0)
+            {
+                iTrang++;
+            }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaThuoc)
+                </td>
+                <td>
+                    @{
+                        string filePath = "/User/img/" + item.Anh;
+                    }
+                    <img src="@filePath" alt="Ảnh" style="width:50px; height:50px">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenThuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhPhan)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.NgaySx)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.NgayHh)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGiaBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGiaNhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.TrongLuong)
+            </td> *@
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaLoaiNavigation.MaLoai)
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Thuoc" asp-action="EditProduct" asp-route-id="@item.MaThuoc">Edit</a> |
+
+                    <a class="btn btn-danger" asp-controller="Thuoc" asp-action="DeleteProduct" asp-route-id="@item.MaThuoc">Delete</a>
+                </td>
+            </tr>
+            iDem++;
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            @for (int i = 1; i <= iTrang; i++)
+            {
+                <li class="page-item btn" idpage="@i">
+                    <a class="page-link" href="#">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+<script>
+    $(document).ready(function () {
+        // Ẩn tất cả các học viên trừ 3 học viên đầu tiên
+        $("table tbody tr:gt(2)").hide();
+
+        // Xác định số lượng học viên trên mỗi trang
+        var pageSize = 3;
+
+        $(".page-item").click(function (e) {
+            var pageNumber = $(this).attr("idpage");
+
+            // Tính chỉ số học viên bắt đầu và kết thúc cho trang hiện tại
+            var startIndex = (pageNumber - 1) * pageSize;
+            var endIndex = startIndex + pageSize;
+
+            // Ẩn tất cả các học viên
+            $("table tbody tr").hide();
+
+            // Hiển thị học viên trong phạm vi chỉ số tính được
+            $("table tbody tr").slice(startIndex, endIndex).show();
+        });
+    });
+
+</script>
+

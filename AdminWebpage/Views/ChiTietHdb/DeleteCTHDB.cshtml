@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model AdminWebpage.Models.TChiTietHdb
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Xóa Chi Tiết Hóa Đơn Bán</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Chi Tiết Hóa Đơn Bán</h3>
+    <dl class="row">
+                        <dt class="col-sm-2">
+                            Số Hóa Đơn
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.SoHdbNavigation.SoHdb)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Mã Thuốc
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.MaThuocNavigation.MaThuoc)
+                        </dd>
+                        
+        <dt class="col-sm-2">
+            Số Lượng Bán
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Slban)
+        </dd>
+        <dt class="col-sm-2">
+            Khuyến Mãi
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KhuyenMai)
+        </dd>
+        <dt class="col-sm-2">
+           Thành Tiền
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+       
+    </dl>
+
+    <form asp-controller="ChiTietHdb" asp-action="DeleteCTHDB">
+        <input type="hidden" asp-for="SoHdb" />
+        <input type="hidden" asp-for="MaThuoc" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

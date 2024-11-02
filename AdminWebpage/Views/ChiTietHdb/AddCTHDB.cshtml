@@ -1,0 +1,127 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+}
+@model AdminWebpage.Models.TChiTietHdb
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Thêm Chi Tiết Hóa Đơn Bán</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Chi Tiết Hóa Đơn Bán</h3>
+                    @* <h4 class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                        <form asp-controller="ChiTietHdb" asp-action="AddCTHDB">
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-info-circle form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Số Hóa Đơn Bán</h5>
+                                    </div>
+                                    <input value ="@ViewBag.HD" asp-for="SoHdb" type="text" class="form-control has-feedback-left" placeholder="Số Hóa Đơn Bán" asp-items="@ViewBag.SoHdb"/>
+                                    <span class="text-danger" asp-validation-for="SoHdb"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-seedling form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Mã Thuốc</h5>
+                                    </div>
+                                    <select asp-for="MaThuoc" type="text" class="form-control has-feedback-left" placeholder="Mã Thuốc" asp-items="@ViewBag.MaThuoc"></select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px; margin-bottom : 4px" class="fas fa-clipboard-list form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Số Lượng</h5>
+                                    </div>
+                                    <input asp-for="Slban" type="text" class="form-control has-feedback-left" placeholder="Số Lượng">
+                                    <span class="text-danger" asp-validation-for="Slban"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-calendar-alt form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Khuyến Mãi</h5>
+                                    </div>
+                                    <input asp-for="KhuyenMai" type="text" class="form-control has-feedback-left" placeholder="Khuyến Mãi">
+                                    <span class="text-danger" asp-validation-for="KhuyenMai"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <div class=" form-control-feedback left mb-2" style="display: grid; grid-template-columns: auto 1fr; align-items: center;">
+                                        <span style="margin-right: 5px;margin-bottom : 4px" class="fas fa-calendar-alt form-control-feedback left" aria-hidden="true"></span>
+                                        <h5 style="margin: 0;font-weight: bold; color: #333;">Thành Tiền</h5>
+                                    </div>
+                                    <input asp-for="ThanhTien" type="text" class="form-control has-feedback-left" placeholder="Thành Tiền">
+                                    <span class="text-danger" asp-validation-for="ThanhTien"></span>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <div class="col-md-8 col-sm-8 offset-md-2">
+                                    <a asp-controller="ChiTietHdb" asp-action="CTHDB" class="btn btn-primary" type="button">Cancel</a>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+</div>
+
+
+

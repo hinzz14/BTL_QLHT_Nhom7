@@ -1,0 +1,209 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int iTrang = 1;
+}
+@model IEnumerable<AdminWebpage.Models.TThuoc>
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Trang Sản Phẩm</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                       
+                    </ol>
+                    <a asp-controller="Thuoc" asp-action="AddProduct" 
+                       class="btn btn-success  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                        Thêm Sản Phẩm
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                   @*  <div class="form-group form-inline">
+                        <h3 class="box-title">Sản Phẩm</h3>
+                        <form class="form-inline" asp-controller="Thuoc" asp-action="Product">
+                            <div class="form-group">
+                               
+                                <input type="text" name="Searchkey" class="form-control" placeholder="Từ khóa tìm kiếm" />
+                            </div>
+                            <input type="submit" name="submit" value="Tìm Kiếm" class="btn btn-success" />
+                        </form>
+                    </div> *@
+                    <div style="display:flex;justify-content:space-between">
+                        <h3 class="box-title mr-3">Sản Phẩm</h3>
+                        <form class="form-group form-inline">
+                            <div style="display:flex;justify-content:space-between">
+                                
+                                <input type="text" id="Searchname" name="Searchkey" class="form-control " placeholder="Từ khóa tìm kiếm" /> <div style="width:5px"> </div>
+                                <input type="submit" id="btnSearch" name="submit" value="Tìm Kiếm" class="btn btn-primary search" />
+                            </div>
+                            
+                        </form>
+                    </div>
+
+
+                    @* <p class="text-muted">Add class <code>.table</code></p> *@
+                    <div class="table-responsive">
+                      <div id="content">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">Mã Thuốc</th>
+                                    <th class="border-top-0">Ảnh</th>
+                                    <th class="border-top-0">Tên Thuốc</th>
+                                    <th class="border-top-0">Thành Phần</th>
+                                    <th class="border-top-0">Đơn Giá Bán</th>
+                                    <th class="border-top-0">Đơn Giá Nhập</th>
+                                    <th class="border-top-0">Số Lượng</th>
+                                    <th class="border-top-0">Mã Loại</th>
+                                    <th class="border-top-0">Quản Lý Sản Phẩm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                        
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaThuoc)
+                                        </td>
+                                        <td>
+                                            @{
+                                                string filePath = "/User/img/" + item.Anh;
+                                            }
+                                            <img src="@filePath" alt="Ảnh" style="width:50px; height:50px">
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenThuoc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ThanhPhan)
+                                        </td>
+                                       @*  <td>
+                                            @Html.DisplayFor(modelItem => item.NgaySx)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayHh)
+                                        </td> *@
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DonGiaBan)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DonGiaNhap)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoLuong)
+                                        </td>
+                                       @*  <td>
+                                            @Html.DisplayFor(modelItem => item.TrongLuong)
+                                        </td> *@
+                                        
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaLoaiNavigation.MaLoai)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-warning" asp-controller="Thuoc" asp-action="EditProduct" asp-route-id="@item.MaThuoc">Edit</a> |
+                                            
+                                            <a class="btn btn-danger" asp-controller="Thuoc" asp-action="DeleteProduct" asp-route-id="@item.MaThuoc">Delete</a>
+                                        </td>
+                                    </tr>
+                                        
+                                    
+                                }
+                            </tbody>
+                        </table>
+                            <div class="d-flex justify-content-center">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        @for (int i = 1; i <= iTrang; i++)
+                                        {
+                                            <li class="page-item btn" idpage="@i">
+                                                <a class="page-link">@i</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </nav>
+                            </div>
+                      </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+</div>
+
+@section Scripts{
+    <script>
+        var searchName = "";
+        var pageNumber = 1;
+        $(document).ready(function () {
+            loadLearners(pageNumber, searchName);
+        });
+        $(".search").click(function (e) {
+            e.preventDefault();
+            var searchName = $("#Searchname").val();
+            loadLearners(1, searchName);
+        });
+
+        $(".page-item").click(function (e) {
+            var pageNumber = $(this).attr("idpage");
+            var searchName = $("#Searchname").val();
+            loadLearners(pageNumber, searchName);
+        });
+        function loadLearners(pageNumber, searchName) {
+            var pageSize = 3; // Số học viên trên mỗi trang
+
+            $.ajax({
+                type: "GET", // or "POST" depending on your setup
+                url: "/Thuoc/SearchByName",
+                data: { mid: searchName, pageNumber: pageNumber, pageSize: pageSize },
+                success: function (response) {
+                    $("div#content").html(response);
+                }
+            });
+        }
+    </script>
+}
+
+
+
+
+
+
